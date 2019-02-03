@@ -1,0 +1,16 @@
+{
+  "name": "rancher-presentation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "bs serve ./presentation",
+    "build": "bs export ./presentation -o ./dist",
+    "gpage": "gh-pages -d ./dist",
+    "deploy": "npm run build && npm run gpage"
+  },
+  "dependencies": {
+    "backslide": "^2.3.3",
+    "gh-pages": "^2.0.1"
+  }
+}
