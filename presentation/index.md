@@ -87,9 +87,30 @@ The following figure illustrates Rancher’s major components and features.
 
 .responsive[![](./images/rancher_overview.png)]
 
+---
 
+# Rancher Architecture
 
+.col-6[
+In Rancher, everything (containers, networks or images) is an API resource with a process lifecycle.
 
+Rancher is built on the top of containers:
+
+- A web UI
+- An API
+- A server that manage *Rancher Agents*
+- A database
+- A machine microservice
+- The docker-machine binary
+]
+
+.col-6[.space-left[![medium](./images/rancher_architecture.png)]]
+
+---
+
+# Rancher Architecture
+
+When you run Rancher using `docker run rancher/server ...` the *Rancher API* + *Rancher Process Server* + *The Database* + *Machine Microservice* are processes that live inside this container.
 
 
 

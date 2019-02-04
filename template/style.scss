@@ -138,6 +138,7 @@ blockquote {
 .responsive > img { width: 100%; height: auto; };
 .contain { background-size: contain; };
 .overlay { box-shadow: inset 0 0 0 9999px $overlay; }
+img[alt=medium] { zoom: .9; }
 
 // Text
 .left { text-align: left; }
