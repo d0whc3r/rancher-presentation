@@ -202,6 +202,14 @@ Benefits of creating a service under Rancher include:
 
 # Cattle
 
+## Sidekick Services
+
+Rancher supports the collocation, scheduling, and lock step scaling of a set of services by allowing users to group these services by using the notion of sidekicks. A service with one or more sidekicks is typically created to support shared volumes.
+
+---
+
+# Cattle
+
 ## Stacks
 
 A stack is a group of services.
@@ -236,6 +244,8 @@ Upon connection, it generates an agent account and API key pair in Rancher serve
 The key pair is then used for all subsequent communication using the same authentication and authorization logic as there is for other kinds of accounts, like environment API keys.
 
 ---
+
+# Hosts
 
 ## How do hosts work?
 
@@ -286,6 +296,12 @@ When queried by the service name, the DNS service returns a randomized list of I
 - If you need a custom DNS name for your service, that is different from your service name, you will be required to set a link to get the custom DNS name.
 - Links are still required if a Service Alias is used.
 - To make services resolvable that are in different stacks, you can use <service_name>.<stack_name> and are not required explicit links, which can be set under Service Links in a service.
+
+---
+
+# Diagram
+
+.contain[![small](./images/diagram.png)]
 
 ---
 
