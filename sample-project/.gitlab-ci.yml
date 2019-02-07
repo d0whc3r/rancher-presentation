@@ -1,0 +1,27 @@
+stages:
+  - docker
+  - rancher
+
+variables:
+  RANCHER_ACCESS_KEY: "xxx"
+  RANCHER_SECRET_KEY: "xxx"
+  RANCHER_URL: "http://xxx"
+
+registry:
+  image: docker:git
+  stage: docker
+  services:
+    - docker:dind
+  script:
+    - export CI_COMMIT_REF_NAME=$(echo $CI_COMMIT_REF_NAME | sed -r 's#/#_#g')
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+
+deploy:
+  image: cdrx/rancher-gitlab-deploy
+  stage: rancher
+  only:
+    - master
+  script:
+    - upgrade --start-before-stopping --finish-upgrade
