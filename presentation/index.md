@@ -112,15 +112,9 @@ Rancher is built on the top of containers:
 
 When you run Rancher using `docker run rancher/server` the *Rancher API* + *Rancher Process Server* + *The Database* + *Machine Microservice* are processes that live inside this container.
 
---
-
 The docker-machine binary is also living in the same container but only runs when it is called by the API.
 
---
-
 Rancher has also an **Agent** part that manage the life cycle of containers.
-
---
 
 If *docker-machine* creates a machine successfully, some events are exchanged between the docker-machine and the microservice.
 A bootstrap event is created and a docker-machine config command is executed to get the details needed to connect to the machine’s Docker daemon.
@@ -131,11 +125,7 @@ A bootstrap event is created and a docker-machine config command is executed to 
 
 If everything run without problems, the service fires up a **Rancher Agent** on the machine via docker
 
---
-
 Rancher Agents open a WebSocket connection to the server in order to establish a 2-way communication.
-
---
 
 The Rancher Agent manage its containers and reports every change using the Docker API.
 
